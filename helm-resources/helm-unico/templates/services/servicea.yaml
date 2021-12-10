@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "helm-unico.servicea.fullname" . }}
+  labels:
+    {{- include "helm-unico.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.servicea.service.type }}
+  ports:
+    - port: {{ .Values.servicea.service.port }}
+      targetPort: 3002
+      nodePort: {{ .Values.port_service }} 
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "helm-unico.selectorLabels" . | nindent 4 }}

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "helm-unico.mspolicy.fullname" . }}
+  labels:
+    {{- include "helm-unico.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.mspolicy.service.type }}
+  ports:
+    - port: {{ .Values.mspolicy.service.port }}
+      targetPort: 3000
+      nodePort: {{ .Values.port_policy }} 
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "helm-unico.selectorLabels" . | nindent 4 }}

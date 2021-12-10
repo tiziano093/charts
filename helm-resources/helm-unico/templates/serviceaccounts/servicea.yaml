@@ -1,0 +1,12 @@
+{{- if .Values.serviceAccounts.servicea.create -}}
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ include "helm-unico.serviceAccountName.servicea" . }}
+  labels:
+    {{- include "helm-unico.labels" . | nindent 4 }}
+  {{- with .Values.serviceAccounts.servicea.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+{{- end }}

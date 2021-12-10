@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "helm-unico.servicea.fullname" . }}
+  labels:
+    {{- include "helm-unico.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.servicea.autoscaling.enabled }}
+  replicas: {{ .Values.servicea.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "helm-unico.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.servicea.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "helm-unico.selectorLabels" . | nindent 8 }}
+    spec:
+      dnsPolicy: Default
+      {{- with .Values.servicea.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "helm-unico.serviceAccountName.servicea" . }}
+      securityContext:
+        {{- toYaml .Values.servicea.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.servicea.securityContext | nindent 12 }}
+          image: "{{ .Values.servicea.image.repository }}:{{ .Values.servicea.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.servicea.image.pullPolicy }}
+          env:          
+          - name: "TOPIC_READ"
+            valueFrom:
+              secretKeyRef:
+                key:  topic_read
+                name: {{ .Release.Name }}-auth
+          - name: "PROCESS_ID"
+            valueFrom:
+              secretKeyRef:
+                key:  process_id
+                name: {{ .Release.Name }}-auth
+          ports:
+            - name: http
+              containerPort: 3002
+              protocol: TCP
+          livenessProbe:  
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          resources:
+            {{- toYaml .Values.servicea.resources | nindent 12 }}
+      {{- with .Values.servicea.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.servicea.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.servicea.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

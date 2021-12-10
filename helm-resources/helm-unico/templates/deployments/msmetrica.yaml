@@ -1,0 +1,97 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "helm-unico.msmetrica.fullname" . }}
+  labels:
+    {{- include "helm-unico.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.msmetrica.autoscaling.enabled }}
+  replicas: {{ .Values.msmetrica.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "helm-unico.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.msmetrica.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "helm-unico.selectorLabels" . | nindent 8 }}
+    spec:
+      dnsPolicy: Default
+      {{- with .Values.msmetrica.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "helm-unico.serviceAccountName.msmetrica" . }}
+      securityContext:
+        {{- toYaml .Values.msmetrica.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.msmetrica.securityContext | nindent 12 }}
+          image: "{{ .Values.msmetrica.image.repository }}:{{ .Values.msmetrica.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.msmetrica.image.pullPolicy }}
+          env:          
+          - name: "TOPIC_READ"
+            valueFrom:
+              secretKeyRef:
+                key:  topic_read
+                name: {{ .Release.Name }}-auth
+          - name: "TOPIC_WRITE"
+            valueFrom:
+              secretKeyRef:
+                key:  topic_write
+                name: {{ .Release.Name }}-auth
+          - name: "OPERATOR"
+            valueFrom:
+              secretKeyRef:
+                key:  operator
+                name: {{ .Release.Name }}-auth
+          - name: "CHECK"
+            valueFrom:
+              secretKeyRef:
+                key:  check
+                name: {{ .Release.Name }}-auth
+          - name: "DELTATIME"
+            valueFrom:
+              secretKeyRef:
+                key:  deltatime
+                name: {{ .Release.Name }}-auth
+          - name: "PROCESS_ID"
+            valueFrom:
+              secretKeyRef:
+                key:  process_id
+                name: {{ .Release.Name }}-auth
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          livenessProbe:  
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          resources:
+            {{- toYaml .Values.msmetrica.resources | nindent 12 }}
+      {{- with .Values.msmetrica.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.msmetrica.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.msmetrica.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

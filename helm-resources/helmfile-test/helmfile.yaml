@@ -1,0 +1,18 @@
+releases:
+    - name: servicea
+      chart: ./charts/servizioa
+      values:
+          - ./values/servicea.yaml
+      installed: true
+
+    - name: msmetrica
+      chart: ./charts/msmetrica
+      values:
+          - ./values/msmetrica.yaml
+      installed: true
+
+    - name: mspolicy
+      chart: ./charts/mspolicy
+      values:
+          - ./values/mspolicy.yaml
+      installed: true    

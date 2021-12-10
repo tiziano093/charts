@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  helm-unico:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-12-10T10:15:37.8204195+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 53a092f530b349f2de8fb71bb9dfe47515d17a0f7e588888abff61b6434d701c
+    name: helm-unico
+    type: application
+    urls:
+    - https://tiziano093.github.io/charts/helm-unico-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-12-10T10:15:37.817498+01:00"
