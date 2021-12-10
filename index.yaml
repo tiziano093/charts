@@ -3,7 +3,7 @@ entries:
   helm-unico:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-10T10:15:37.8204195+01:00"
+    created: "2021-12-10T10:29:22.0000001+01:00"
     description: A Helm chart for Kubernetes
     digest: 53a092f530b349f2de8fb71bb9dfe47515d17a0f7e588888abff61b6434d701c
     name: helm-unico
@@ -11,4 +11,37 @@ entries:
     urls:
     - https://tiziano093.github.io/charts/helm-unico-0.1.0.tgz
     version: 0.1.0
-generated: "2021-12-10T10:15:37.817498+01:00"
+  msmetrica:
+  - apiVersion: v2
+    appVersion: "2.0"
+    created: "2021-12-10T10:29:22.0001674+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 9bca9362ddb80e01ad993cbd14099249210b7be3c5bb9000f1a0cea1770eef78
+    name: msmetrica
+    type: application
+    urls:
+    - https://tiziano093.github.io/charts/msmetrica-0.1.0.tgz
+    version: 0.1.0
+  mspolicy:
+  - apiVersion: v2
+    appVersion: "2.0"
+    created: "2021-12-10T10:29:22.0014506+01:00"
+    description: A Helm chart for Kubernetes
+    digest: c692478065aaf356fec5f438a1bdb78eb7bc234077e4c394b23a3859c7e59e60
+    name: mspolicy
+    type: application
+    urls:
+    - https://tiziano093.github.io/charts/mspolicy-0.1.0.tgz
+    version: 0.1.0
+  servicea:
+  - apiVersion: v2
+    appVersion: "2.0"
+    created: "2021-12-10T10:29:22.0019652+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 4e7d3144ff1af054379c5772acc810319fc373db02eef04492d8d06ce99ff432
+    name: servicea
+    type: application
+    urls:
+    - https://tiziano093.github.io/charts/servicea-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-12-10T10:29:21.9953208+01:00"
