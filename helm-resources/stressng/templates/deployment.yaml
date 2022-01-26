@@ -38,13 +38,13 @@ spec:
               containerPort: 80
               protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /
-              port: http
+            exec:
+              command:
+              - ls
           readinessProbe:
-            httpGet:
-              path: /
-              port: http
+            exec:
+              command:
+              - ls
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
