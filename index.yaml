@@ -3,9 +3,13 @@ entries:
   helm-unico:
   - apiVersion: v2
     appVersion: 1.16.0
+<<<<<<< HEAD
+    created: "2022-02-17T17:15:45.347389+01:00"
+=======
     created: "2022-01-27T10:36:01.276454+01:00"
+>>>>>>> 0700c12495ff08817f3ea486d8b09375ceb6546c
     description: A Helm chart for Kubernetes
-    digest: 53a092f530b349f2de8fb71bb9dfe47515d17a0f7e588888abff61b6434d701c
+    digest: a37bbe0e3d49134081e9f559bad273a7cd00048789d56926663cb9139d0e1685
     name: helm-unico
     type: application
     urls:
@@ -14,7 +18,11 @@ entries:
   msmetrica:
   - apiVersion: v2
     appVersion: "2.0"
+<<<<<<< HEAD
+    created: "2022-02-17T17:15:45.3479109+01:00"
+=======
     created: "2022-01-27T10:36:01.276966+01:00"
+>>>>>>> 0700c12495ff08817f3ea486d8b09375ceb6546c
     description: A Helm chart for Kubernetes
     digest: 9bca9362ddb80e01ad993cbd14099249210b7be3c5bb9000f1a0cea1770eef78
     name: msmetrica
@@ -25,7 +33,11 @@ entries:
   mspolicy:
   - apiVersion: v2
     appVersion: "2.0"
+<<<<<<< HEAD
+    created: "2022-02-17T17:15:45.3483886+01:00"
+=======
     created: "2022-01-27T10:36:01.277577+01:00"
+>>>>>>> 0700c12495ff08817f3ea486d8b09375ceb6546c
     description: A Helm chart for Kubernetes
     digest: c692478065aaf356fec5f438a1bdb78eb7bc234077e4c394b23a3859c7e59e60
     name: mspolicy
@@ -36,7 +48,11 @@ entries:
   servicea:
   - apiVersion: v2
     appVersion: "2.0"
+<<<<<<< HEAD
+    created: "2022-02-17T17:15:45.3488883+01:00"
+=======
     created: "2022-01-27T10:36:01.2780902+01:00"
+>>>>>>> 0700c12495ff08817f3ea486d8b09375ceb6546c
     description: A Helm chart for Kubernetes
     digest: 4e7d3144ff1af054379c5772acc810319fc373db02eef04492d8d06ce99ff432
     name: servicea
@@ -44,6 +60,9 @@ entries:
     urls:
     - servicea-0.1.0.tgz
     version: 0.1.0
+<<<<<<< HEAD
+generated: "2022-02-17T17:15:45.3454109+01:00"
+=======
   stressng:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -67,3 +86,4 @@ entries:
     - testnet-0.1.0.tgz
     version: 0.1.0
 generated: "2022-01-27T10:36:01.2751924+01:00"
+>>>>>>> 0700c12495ff08817f3ea486d8b09375ceb6546c
