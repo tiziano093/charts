@@ -21,6 +21,9 @@ spec:
         {{- include "helm-unico.selectorLabels" . | nindent 8 }}
     spec:
       dnsPolicy: Default
+      dnsConfig:
+        searches:
+          - altranroma.dyndns.org
       {{- with .Values.msmetrica.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
