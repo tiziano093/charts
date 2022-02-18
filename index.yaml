@@ -3,11 +3,7 @@ entries:
   helm-unico:
   - apiVersion: v2
     appVersion: 1.16.0
-<<<<<<< HEAD
-    created: "2022-02-17T17:15:45.347389+01:00"
-=======
-    created: "2022-01-27T10:36:01.276454+01:00"
->>>>>>> 0700c12495ff08817f3ea486d8b09375ceb6546c
+    created: "2022-02-18T10:10:01.9640771+01:00"
     description: A Helm chart for Kubernetes
     digest: a37bbe0e3d49134081e9f559bad273a7cd00048789d56926663cb9139d0e1685
     name: helm-unico
@@ -18,11 +14,7 @@ entries:
   msmetrica:
   - apiVersion: v2
     appVersion: "2.0"
-<<<<<<< HEAD
-    created: "2022-02-17T17:15:45.3479109+01:00"
-=======
-    created: "2022-01-27T10:36:01.276966+01:00"
->>>>>>> 0700c12495ff08817f3ea486d8b09375ceb6546c
+    created: "2022-02-18T10:10:01.9650932+01:00"
     description: A Helm chart for Kubernetes
     digest: 9bca9362ddb80e01ad993cbd14099249210b7be3c5bb9000f1a0cea1770eef78
     name: msmetrica
@@ -33,11 +25,7 @@ entries:
   mspolicy:
   - apiVersion: v2
     appVersion: "2.0"
-<<<<<<< HEAD
-    created: "2022-02-17T17:15:45.3483886+01:00"
-=======
-    created: "2022-01-27T10:36:01.277577+01:00"
->>>>>>> 0700c12495ff08817f3ea486d8b09375ceb6546c
+    created: "2022-02-18T10:10:01.9655774+01:00"
     description: A Helm chart for Kubernetes
     digest: c692478065aaf356fec5f438a1bdb78eb7bc234077e4c394b23a3859c7e59e60
     name: mspolicy
@@ -48,11 +36,7 @@ entries:
   servicea:
   - apiVersion: v2
     appVersion: "2.0"
-<<<<<<< HEAD
-    created: "2022-02-17T17:15:45.3488883+01:00"
-=======
-    created: "2022-01-27T10:36:01.2780902+01:00"
->>>>>>> 0700c12495ff08817f3ea486d8b09375ceb6546c
+    created: "2022-02-18T10:10:01.9660942+01:00"
     description: A Helm chart for Kubernetes
     digest: 4e7d3144ff1af054379c5772acc810319fc373db02eef04492d8d06ce99ff432
     name: servicea
@@ -60,13 +44,10 @@ entries:
     urls:
     - servicea-0.1.0.tgz
     version: 0.1.0
-<<<<<<< HEAD
-generated: "2022-02-17T17:15:45.3454109+01:00"
-=======
   stressng:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-01-27T10:36:01.2786992+01:00"
+    created: "2022-02-18T10:10:01.9670768+01:00"
     description: A Helm chart for Kubernetes
     digest: e68aa15d12b049b25e25c7fe5e4737515d2e74cf546b4648b56ac98afa14bd29
     name: stressng
@@ -77,7 +58,7 @@ generated: "2022-02-17T17:15:45.3454109+01:00"
   testnet:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-01-27T10:36:01.2792102+01:00"
+    created: "2022-02-18T10:10:01.9680765+01:00"
     description: A Helm chart for Kubernetes
     digest: 9e41fa1924cc7e58ef25ff762d79b3ec41ce574d601467ec1fb8651e746d15dd
     name: testnet
@@ -85,5 +66,4 @@ generated: "2022-02-17T17:15:45.3454109+01:00"
     urls:
     - testnet-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-27T10:36:01.2751924+01:00"
->>>>>>> 0700c12495ff08817f3ea486d8b09375ceb6546c
+generated: "2022-02-18T10:10:01.9614046+01:00"
